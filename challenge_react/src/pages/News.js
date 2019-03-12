@@ -23,8 +23,8 @@ class NewsContent extends Component {
       blog: [],
       searchText : ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.doSearch = this.doSearch.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.doSearch = this.doSearch.bind(this);
   }
 
   componentDidMount = () => {
@@ -98,67 +98,67 @@ class NewsContent extends Component {
     
 // }
   
-// //   render() {
-// //     console.log("here")
-// //     const {listNews} = this.state;
-// //     const {blog} = this.state;
-// //     const is_login = JSON.parse(localStorage.getItem("is_login"));
-// //     return (
-// //       <div className="App">
-// //             <meta charset="utf-8"/>
-// //             <meta name="viewport" content="width=device-width, initial-scale=1"/>
-// //             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
-// //             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-// //             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-// //         <div class="row">
-// //             <div class="col-md-12">
-// //                 <Navbar />
-// //             </div>
-// //         </div>
-        
-// //         <div class="container">
-// //             <div class="row">
-// //                 <div class="col-md-4">
-// //                     <Search title="Cari" placeholder="type keyword.."/><br></br>
-// //                     {listNews.slice(0,5).map((item, key) => {
-// //                       const title = item.title !== null ? item.title : "";
-// //                       return <ListNews key={key} title={title} index={key}/>;
-// //                     })}
-// //                 </div>
-// //                 <div class="col-md-8">
-// //                     {blog.slice(0,5).map((item, key) => {
-// //                       const src_img = item.urlToImage === null ? az : item.urlToImage;
-// //                       const content = item.content !== null ? item.content: "";
-// //                       const title = item.title !== null ? item.title : "";
-// //                       const index = key;
-// //                       return <Blog key={key} title={title} img={src_img} content={content} index={key}/>;
-// //                     })}
-// //                 </div>
-// //             </div>
-// //         </div>
-// //       </div>
-// //     );
-// //   }
-// // }
-
-
-render() {
-  console.log("here")
-  const {listNews} = this.state;
-  const {blog} = this.state;
-  const is_login = JSON.parse(localStorage.getItem("is_login"));
-  if(is_login === null) {
-    return <Redirect to = {{pathname : "/signin"}}/>
-  }
-  else {
+  render() {
+    console.log("here")
+    const {listNews} = this.state;
+    const {blog} = this.state;
+    const is_login = JSON.parse(localStorage.getItem("is_login"));
     return (
-      <div>
-        <Blog handleChange={this.handleChange} listNews={listNews} blog={blog}/>
+      <div className="App">
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <div class="row">
+            <div class="col-md-12">
+                <Navbar />
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <Search title="Cari" placeholder="type keyword.."/><br></br>
+                    {listNews.slice(0,5).map((item, key) => {
+                      const title = item.title !== null ? item.title : "";
+                      return <ListNews key={key} title={title} index={key}/>;
+                    })}
+                </div>
+                <div class="col-md-8">
+                    {blog.slice(0,5).map((item, key) => {
+                      const src_img = item.urlToImage === null ? az : item.urlToImage;
+                      const content = item.content !== null ? item.content: "";
+                      const title = item.title !== null ? item.title : "";
+                      const index = key;
+                      return <Blog key={key} title={title} img={src_img} content={content} index={key}/>;
+                    })}
+                </div>
+            </div>
+        </div>
       </div>
     );
   }
-  }
 }
+
+
+// render() {
+//   console.log("here")
+//   const {listNews} = this.state;
+//   const {blog} = this.state;
+//   const is_login = JSON.parse(localStorage.getItem("is_login"));
+//   if(is_login === null) {
+//     return <Redirect to = {{pathname : "/signin"}}/>
+//   }
+//   else {
+//     return (
+//       <div>
+//         <Blog handleChange={this.handleChange} listNews={listNews} blog={blog}/>
+//       </div>
+//     );
+//   }
+//   }
+// }
 
 //   return (
 //     <div className="App">
@@ -196,6 +196,6 @@ render() {
 //     </div>
 //   );
 // }
-// }
+
 
 export default NewsContent;
