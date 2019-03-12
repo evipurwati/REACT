@@ -9,10 +9,9 @@ class Search extends Component {
     render() {
       return (        
       <div className="App">
-        <form class="ml-auto">
-            <div class="search">
-                <input type="text" class="form-control" maxlength="64" placeholder="Search" style={{width: '200px'}}/><button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-            </div>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
 
