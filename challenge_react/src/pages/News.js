@@ -12,8 +12,6 @@ class News extends Component {
       <div className="App">
         <Navbar />
         <br></br>
-
-        {/* <Search /> */}
         <NewsContent />
         </div>
 
