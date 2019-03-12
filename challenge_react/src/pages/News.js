@@ -11,6 +11,8 @@ class News extends Component {
       return (        
       <div className="App">
         <Navbar />
+        <br></br>
+
         {/* <Search /> */}
         <NewsContent />
         </div>

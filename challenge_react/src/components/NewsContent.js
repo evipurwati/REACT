@@ -2,77 +2,55 @@ import React, { Component } from 'react';
 // import '..///Blog.css';
 import '../css/bootstrap.min.css';
 import putriayako from '../img/putriayako.jpeg'
+import '../css/listBlog.css';
 
 class NewsContent extends Component {
   render() {
     return (
       <div className="App">
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <div class="container">
-        <div class='row' style={{marginTop:'50px'}}>
-            <div class="col-3" style={{left: '70px'}}>
-                <div class="well">
-                    <h4><i class="fa fa-search"></i> Blog Search...</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="searchbutton">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style={{width: '250px'}}/>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style={{width: '75px'}}>Search</button>
+                        </form>
                     </div>
+                    <div class="single category">
+                        <h3 class="side-title">Berita Terkini</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="" title="">Gabung Alpha Tech Academy Sekarang<span class="list-urutan">1</span></a></li>
+                            <li><a href="" title="">Ada apa antara Kobar dan Hasan?<span class="list-urutan">1</span></a></li>
+                            <li><a href="" title="">Mengenal Arafat sang master Python<span class="list-urutan">1</span></a></li>
+                            <li><a href="" title="">Belajar react-Js itu seru. Kamu setuju ?<span class="list-urutan">1</span></a></li>
+                            <li><a href="" title="">Sudahkah kamu sehat mental ?<span class="list-urutan">1</span></a></li>
+                        </ul>
+                    </div>
+                    {/* <div class="container">
+                        <h2>Badges</h2>
+                        <a href="#">News <span class="badge">5</span></a><br></br>
+                        <a href="#">Comments <span class="badge">10</span></a><br></br>
+                        <a href="#">Updates <span class="badge">2</span></a>
+                    </div> */}
                 </div>
-                <div class="well">
-                    <h4 style={{marginTop: '100px'}}><i class="fa fa-fire"></i> Popular Posts:</h4>
-					<ul>
-                    <li><a href="">WPF vs. Windows Forms-Which is better?</a></li>
-					<li><a href="">How to create responsive website with Bootstrap?</a></li>
-					<li><a href="">The best Joomla! templates 2014</a></li>
-					<li><a href="">ASP .NET cms list</a></li>
-			        <li><a href="">C# Hello, World! program</a></li>
-					<li><a href="">Java random generator</a></li>
-					</ul>
+                <div class="col-md-7">
+                    <div class="imgblog">
+                        <img src={putriayako}/>
+                    </div>
+                    <br></br>
+                    <div class="titleblog">
+                        <h6 style={{fontWeight: 'bold'}}>Nikahi Rakyat Biasa, Putri Ayako Dari Jepang Mendapatkan Penghargaan Panasonic Gobel Awards</h6>
+                        <h6 style={{color: 'black'}}>Pernikahan Putri Ayako digelar dengan nuansa adat Jawa dan Jepang.</h6>
+                    </div>
                 </div>
             </div>
         </div>
-            <div class='col-9'>
-                <div class="well">
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src={putriayako}/>
-                        </a>
-                        <br></br>
-                        <div class="media-body">
-                            <h4 class="media-heading">Nikahi orang biasa, Putri Ayako mendapat penghargaan Panasonic Gobel Awards</h4>
-                            <p class="text-right">By Evi</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                    Aliquam in felis sit amet augue.</p>
-                            <ul class="list-inline list-unstyled">
-                                <li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-                                <li>|</li>
-                                <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                                <li>|</li>
-                                <li>
-                                <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star-empty"></span>
-                                </li>
-                                <li>|</li>
-                                <li>
-                                <span><i class="fa fa-facebook-square"></i></span>
-                                <span><i class="fa fa-twitter-square"></i></span>
-                                <span><i class="fa fa-google-plus-square"></i></span>
-                                </li>
-                                </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
       </div>
     );
   }
