@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/bootstrap.css';
 import '../css/bootstrap.min.css';
 import '../css/style.css';
@@ -14,26 +15,26 @@ class Navbar extends Component {
                 <a class="navbar-brand" href="#">KabarKabar</a>
             </div>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> */}
 
 
             <div class="col-md-5 collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Sepakbola <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <Link to='/Sepakbola' class="nav-link">Sepakbola</Link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ekonomi</a>
+                    <Link to='/Ekonomi' class="nav-link">Ekonomi</Link>   
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Politik</a>
+                    <Link to='/Politik' class="nav-link">Politik</Link>   
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Hiburan</a>
+                    <Link to='/Hiburan' class="nav-link">Hiburan</Link>   
                 </li>
-                <li class="nav-item dropdown">
+                {/* <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Lainnya
                     </a>
@@ -43,7 +44,7 @@ class Navbar extends Component {
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                </li>
+                </li> */}
 
                 </ul>
             </div>
@@ -57,12 +58,21 @@ class Navbar extends Component {
 
             <div class="col-md-3 collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Masuk <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Daftar</a>
+                    <Link to='/' class="nav-link">Home</Link>   
                 </li>                
+                {/* <li class="nav-item">
+                    <Link to='/Ekonomi' class="nav-link">Sign Up</Link>   
+                </li> */}
+                <li class="nav-item">
+                    <Link to='/signin' class="nav-link">Sign In</Link>   
+                </li>   
+                <li class="nav-item">
+                    <Link to='/Profile' class="nav-link">Profile</Link>   
+                </li>           
+                <li class="nav-item">
+                    <Link to="/" class="nav-link" onClick={() => this.props.postSignout()} style={{textDecoration:'none'}}>Sign Out</Link>
+                </li>        
                 </ul>
             </div>
         </nav>

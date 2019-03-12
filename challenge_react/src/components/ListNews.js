@@ -45,7 +45,7 @@ const ListNews = props => {
     <ul class="list-unstyled">
       <li><span class="list-urutan" style={{color: 'blue'}}>#{props.index + 1}</span>
       <br></br>
-      <a href="" title="">{props.title}</a></li>
+      <a href="" title="" style={{textAlign: 'left'}}>{props.title}</a></li>
     </ul>
   );
 };
