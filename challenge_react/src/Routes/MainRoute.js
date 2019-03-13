@@ -8,6 +8,7 @@ import Politik from '../pages/Politik';
 import Hiburan from '../pages/Hiburan';
 import SignIn from '../components/SignIn';
 import Profile from '../components/Profile';
+// import GetParam from "../pages/News";
 
 const MainRoute = () => {
     return (
@@ -19,6 +20,7 @@ const MainRoute = () => {
             <Route exact path='/hiburan' component={Hiburan} />
             <Route exact path='/signin' component={SignIn} />
             <Route exact path='/profile' component={Profile} />
+            {/* <Route path="/:query" component={this.GetParam} /> */}
             {/* <Route component={NotMatch} /> */}
         </Switch>
     );

@@ -21,115 +21,63 @@ class NewsContent extends Component {
     this.state = {
       listNews: [],
       blog: [],
-      url: ""
+      searchText: ""
     };
-
+    this.handleChange = this.handleChange.bind(this);
+    this.doSearch = this.doSearch.bind(this);
   }
 
-  componentDidMount = () => {
-    const self = this;
-    axios
-      .get(urlHeadline)
-      .then(function (response) {
-        self.setState({ listNews: response.data.articles });
-        console.log(response);
-      })
-      .catch(function (error) {
+  componentDidMount(){
+    let self = this;
+    axios.get(urlHeadline).then(function(response){
+        self.setState({listNews : response.data.articles});
+        //console.log(response.data);
+    }).catch(function(error){
         console.log(error);
-      });
-    axios
-      .get(urlNews)
-      .then(function (response) {
-        self.setState({ blog: response.data.articles });
-        console.log(response);
-      })
-      .catch(function (error) {
+    });
+
+    axios.get(urlNews).then(function(response){
+        self.setState({blog : response.data.articles});
+        //console.log(response.data);
+    }).catch(function(error){
         console.log(error);
-      });
+    });
+        
   }
 
-  // handleInputChange = e => {
-  //   console.log('event', e.target.value);
-  //   let value = e.target.value;
 
-  //   this.setState(
-  //   {
-  //     search: value
-  //   },
-  //   () => {
-  //     this.searchNews(value);
-  //   }
-  //   );
-  // };
+  handleChange(e){
+    this.doSearch(e.target.value);
+  }
 
-  // searchNews = async keyword => {
-  //   console.log('searchNews', keyword);
-  //   const self = this;
-  //   if (keyword.length > 2) {
-  //     try {
-  //       const response = await axios.get(
-  //         baseUrl + 'everything?q=' + keyword + apiKey
-  //       );
-  //       console.log(response);
-  //       self.setState({ listNews: response.data } 
-  //         .catch (error) {
-  //         console.error(error);
-  //     })
-  //   }
-  // };
-
-  handleInputChange = e => {
-    // console.log("event: ", e.target.value)
-    // console.log("Testing Url: ", baseUrl + e.target.value + apiKey)
-    // self.setState({url: baseUrl + e.target.value + apiKey})
-    let value = e.target.value;
-
-    this.setState(
-      {
-        search: value
-      },
-      () => {
-        this.searchNews(value);
-      }
-    );
-  };
-
-  searchNews = async keywords => {
-    console.log("searchNews", keywords);
-    const self = this;
-    if (keywords.length > 2) {
-      try {
-        const response = await axios.get(
-          baseUrl + keywords + apiKey
-        );
-        console.log(response);
-        self.setState({ listNews: response.data.articles })
-      } catch (error) {
-        console.error(error);
-      }
+  doSearch(keyword){
+    console.log(keyword)
+    let self = this;
+    let urlSearch = baseUrl + "everything?q="+ keyword + "&apiKey=" + apiKey;
+    // console.log("testing do search", urlSearch)
+    if(keyword.length > 2){
+        axios.get(urlSearch).then(function(response){
+          console.log(response)
+            self.setState({blog : response.data.articles});
+            console.log('test response', response)
+        }).catch(function(error){
+            console.log(error);
+        });
     }
   }
-
-
-
-  //   doSearch(keyword){
-  //     let self = this;
-  //     let urlSearch = baseUrl + "everything?q="+ keyword + "&apiKey=" + apiKey;
-  //     if(keyword.length > 2){
-  //         axios.get(urlSearch).then(function(response){
-  //             self.setState({listNews : response.data.articles});
-  //         }).catch(function(error){
-  //             console.log(error);
-  //         });
-  //     }
-
-  // }
 
   render() {
     console.log("here")
     const { listNews } = this.state;
     const { blog } = this.state;
-    // const is_login = JSON.parse(localStorage.getItem("is_login"));
+    // const { is_login } = this.state;
+    const { is_login  } = JSON.parse(localStorage.getItem("is_login"));
+    console.log('is_login', is_login);
+
+    if (is_login === null){
+      return <Redirect to={{pathname: '/signin'}} />;
+    }
+    else{
     return (
       <div className="App">
         <meta charset="utf-8" />
@@ -146,7 +94,7 @@ class NewsContent extends Component {
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <Search doSearch={(e) => this.handleInputChange(e)} /><br></br>
+            <Search handleChange={this.handleChange}/><br></br>
               {listNews.slice(0, 5).map((item, key) => {
                 const title = item.title !== null ? item.title : "";
                 return <ListNews key={key} title={title} index={key} />;
@@ -166,7 +114,7 @@ class NewsContent extends Component {
       </div>
     );
   }
-}
+}}
 
 
 // render() {
