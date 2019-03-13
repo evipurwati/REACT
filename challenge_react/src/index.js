@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import appRouter from "./App"
+import appRouter from "./App";
+import { Provider } from 'unistore/react';
+import { store } from './Store';
+
 
 // import Home from './pages/Home';
 // import Gallery from './pages/Gallery';
@@ -23,9 +26,11 @@ import { BrowserRouter } from 'react-router-dom';
 const rootEl = document.getElementById('root');
 const render = Component => 
     ReactDOM.render (
-        <BrowserRouter>
-            <Component />
-        </BrowserRouter>,
+        <Provider store={store}>
+            <BrowserRouter>
+                <Component />
+            </BrowserRouter>
+        </Provider>,
         rootEl
     );
 
