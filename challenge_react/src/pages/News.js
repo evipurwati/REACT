@@ -44,7 +44,27 @@ class NewsContent extends Component {
     });
         
   }
-
+  componentDidMount = () => {
+    const self = this;
+    axios
+      .get(urlHeadline)
+      .then(function (response) {
+        self.setState({ listNews: response.data.articles });
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    axios
+      .get(urlNews)
+      .then(function (response) {
+        self.setState({ blog: response.data.articles });
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   handleChange(e){
     this.doSearch(e.target.value);
